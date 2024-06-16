@@ -1,0 +1,157 @@
+{% assign sid = section.id | prepend: '#test-' %}
+
+<style>
+    {{ sid }} * {
+        box-sizing: border-box;
+    }
+
+    {{ sid }} {
+        background: #0E1326;
+    }
+
+    {{ sid }} .section_holder {
+        margin: auto;
+        padding-top: 63px;
+        max-width: 780px;
+        color: #FFF;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    {{ sid }} .here-what {
+        font-weight: 600;
+        font-size: 14px;
+        margin: 0;
+    }
+
+    {{ sid }} .image-widget {
+        padding-top: 40px;
+        width: calc(50% - 40px);
+    }
+
+    {{ sid }} .image-content {
+        margin-left: 60px;
+        width: calc(50% - 20px);
+        display: flex;
+        flex-direction: column;
+    }
+
+    {{ sid }} .content_wrapper {
+        display: flex;
+        gap: 7px;
+        flex-direction: column;
+        font-size: 13px;
+        padding: 30px 0 20px;
+    }
+    
+    {{ sid }} .content_wrapper ul {
+        padding-inline-start: 0;
+        list-style: none;
+        margin: 0;
+    }
+
+    {{ sid }} .access-btn {
+        padding: 15px 30px;
+        font-size: 19px;
+        letter-spacing: 0.3px;
+        font-weight: 600;
+        border: none;
+        border-radius: 5px;
+        background-image: linear-gradient(to bottom, #0E6FE3, #0D4EA1);
+        color: white;
+        display: flex;
+        text-decoration: none;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+    }
+
+
+    @media screen and (max-width: 750px) {
+        {{ sid }} .section_holder {
+            flex-direction: column;
+            padding: 20px;
+            align-items: center;
+        }
+
+        {{ sid }} .image-widget {
+            padding-top: 0;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        {{ sid }} .image-content {
+            margin-left: 0;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+
+        {{ sid }} .access-btn {
+            margin: auto;
+            font-size: 16px;
+            padding: 10px 20px;
+        }
+
+        {{ sid }} .here-what {
+            text-align: center;
+        }
+
+    }
+</style>
+
+<div id="test-{{ section.id }}">
+    <div class="section_holder">
+        <img class="image-widget" src="{{ section.settings.image | image_url: width: 1000 }}" alt="widget" />
+        <div class="image-content">
+            <p class="here-what">{{ section.settings.heading }}</p>
+
+            <div class="content_wrapper">{{ section.settings.content }}</div>
+
+            <a href="{{ section.settings.btn_url }}" class="access-btn">{{ section.settings.btn_label }}</a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Image with Content",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading",
+            "default": "Here's what you'll learn..."
+        },
+        {
+            "type": "richtext",
+            "id": "content",
+            "label": "Content"
+        },
+        {
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button Label",
+            "default": "YES! Give me access now!"
+        },
+        {
+            "type": "url",
+            "id": "btn_url",
+            "label": "Button Url",
+            "info": "Button Link"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Image with Content"
+        }
+    ]
+}
+{% endschema %}

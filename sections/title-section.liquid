@@ -1,0 +1,122 @@
+{% assign sid = section.id | prepend: '#test-' %}
+
+<style>
+    {{ sid }} * {
+        box-sizing: border-box;
+    }
+
+    {{ sid }} {
+        background: #0E1326;
+    }
+
+    {{ sid }} .section_holder {
+        margin: 0 auto;
+        padding-top: 40px;
+        width: 100%;
+        max-width: 740px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        color: #FFF;
+    }
+
+    {{ sid }} .exclusive-header {
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 1.2px;
+        color: red;
+        text-transform: uppercase;
+        margin: 0;
+    }
+
+    {{ sid }} .section_title {
+        margin-top: 25px;
+        font-size: 35px;
+        letter-spacing: 1px;
+        line-height: 44px;
+        text-align: center;
+    }
+
+    {{ sid }} .section_title p {
+        margin: 0;
+    }
+
+    {{ sid }} .section_title a {
+        color: inherit;
+    }
+
+    {{ sid }} .without-wasting {
+        margin-top: 15px;
+        margin-bottom: 0px;
+        width: 92%;
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        text-align: center;
+    }
+
+
+    @media screen and (max-width: 750px) {
+        {{ sid }} .section_holder {
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        {{ sid }} .section_title {
+            font-size: 24px;
+            line-height: 32px;
+        }
+
+        {{ sid }} .without-wasting {
+            font-size: 12px;
+            line-height: 16px;
+        }
+
+
+    }
+</style>
+
+<div id="test-{{ section.id }}">
+    <div class="section_holder">
+        <p class="exclusive-header">{{ section.settings.exclusive_header }}</p>
+
+        <div class="section_title">{{ section.settings.title }}</div>
+
+        <p class="without-wasting">{{ section.settings.description }}</p>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Title Section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "exclusive_header",
+            "label": "Exclusive Header",
+            "default": "Exclusive Free Training",
+            "info": "Exclusive Header",
+            "placeholder": "Please input Exclusive Header here!"
+        },
+        {
+            "type": "richtext",
+            "id": "title",
+            "label": "Title"
+        },
+        {
+            "type": "text",
+            "id": "description",
+            "label": "Description",
+            "default": "... Without wasting time in saturated niches and getting distracted by gravity scores and vanity metrics",
+            "info": "Description of Section",
+            "placeholder": "Input here description."
+        }
+    ],
+    "presets": [
+        {
+            "name": "Title Section"
+        }
+    ]
+}
+{% endschema %}

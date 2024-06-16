@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "title_section_waHDL4": {
+      "type": "title-section",
+      "settings": {
+        "exclusive_header": "Exclusive Free Training",
+        "title": "<p>Discover My <em><strong>Secret Market Research Techniques<\/strong><\/em> To Consistently Find <a href=\"#\" title=\"#\">High Converting Affiliate Offers<\/a> To Promote Online...<\/p>",
+        "description": "... Without wasting time in saturated niches and getting distracted by gravity scores and vanity metrics"
+      }
+    },
+    "image_with_content_pny4gg": {
+      "type": "image-with-content",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/widget.png",
+        "heading": "Here's what you'll learn...",
+        "content": "<ul><li><strong>→ <\/strong>The <strong>top affiliate networks <\/strong>to quickly scan and find trending offers<\/li><li><strong>→ <\/strong>The <strong>secret software tools<\/strong> I'm using to validate and detect the best affiliate offers to promote<\/li><li><strong>→ <\/strong>How to <strong>spy on competitor ads<\/strong> and discover campaigns that already convert<\/li><li><strong>→ <\/strong>How to analyze <strong>\"real\" engagement rates<\/strong> and see what offers are \"actually\" selling<\/li><\/ul>",
+        "btn_label": "YES! Give me access now!",
+        "btn_url": "#"
+      }
+    },
+    "hosted_by_section_XJrma7": {
+      "type": "hosted-by-section",
+      "settings": {
+        "heading": "HOSTED BY...",
+        "name": "Cameron Roe",
+        "description": "Founder & CEO of NextLaunch. With 8 years in digital marketing, Cameron helps brands promote their message and grow their business.",
+        "logo": "N <span>X<\/span> T",
+        "avatar": "shopify:\/\/shop_images\/user.png",
+        "privacy_link": "#",
+        "privacy_label": "- Privacy Policy",
+        "terms_link": "#",
+        "terms_label": "- Terms of Service"
+      }
+    }
+  },
+  "order": [
+    "title_section_waHDL4",
+    "image_with_content_pny4gg",
+    "hosted_by_section_XJrma7"
+  ]
+}

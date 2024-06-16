@@ -1,0 +1,205 @@
+{% assign sid = section.id | prepend: '#test-' %}
+
+<style>
+    {{ sid }} * {
+        box-sizing: border-box;
+    }
+
+    {{ sid }} .section_holder {
+        max-width: 1920px;
+        margin: auto;
+        padding: 40px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    {{ sid }} .image_part {
+        width: 50%;
+    }
+
+    {{ sid }} .content_part {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 50px;
+    }
+
+    {{ sid }} .image_wrapper {
+        position: relative;
+        width: 100%;
+        padding-top: 70%;
+        overflow: hidden;
+    }
+
+    {{ sid }} img.main_image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        max-height: 100%;
+    }
+
+    {{ sid }} img.badge_image {
+        position: absolute;
+        top: 2%;
+        left: 2%;
+        width: 11vw;
+        height: 11vw;
+        object-fit: cover;
+    }
+
+    {{ sid }} .dr_name {
+        text-align: center;
+        color: orange;
+        margin-top: 20px;
+        font-size: 20px;
+        font-weight: 700;
+        font-family: sans-serif;
+    }
+
+    {{ sid }} .headline_part {
+        text-align: center;
+        font-size: 50px;
+        font-weight: 700;
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+
+    {{ sid }} .description_part {
+        text-align: center;
+        max-width: 600px;
+        font-size: 20px;
+    }
+
+    {{ sid }} a.btn_wrapper {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        color: #FFF;
+        background: #000;
+        width: 400px;
+        height: 60px;
+        border-radius: 10px;
+        margin-top: 40px;
+        font-size: 20px;
+    }
+
+    @media screen and (max-width: 900px) {
+        {{ sid }} .section_holder {
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        {{ sid }} .image_part {
+            width: 100%;
+        }
+
+        {{ sid }} .content_part {
+            width: 100%;
+            padding: 0;
+        }
+
+        {{ sid }} .headline_part {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        {{ sid }} .description_part {
+            font-size: 15px;
+        }
+
+        {{ sid }} a.btn_wrapper {
+            width: 300px;
+        }
+
+        {{ sid }} img.badge_image {
+            width: 22vw;
+            height: 22vw;
+        }
+    }
+</style>
+<div id="test-{{ section.id }}">
+    <div class="section_holder">
+        <div class="image_part">
+            <div class="image_wrapper">
+                <img src="{{ section.settings.main_image | image_url: width: 1000 }}" alt="main image" class="main_image">
+                <img src="{{ section.settings.badge_image | image_url: width: 300 }}" alt="badge image" class="badge_image">
+            </div>
+            <div class="dr_name">{{ section.settings.dr_name }}</div>
+        </div>
+        <div class="content_part">
+            <div class="headline_part">{{ section.settings.headline }}</div>
+            <div class="description_part">{{ section.settings.description }}</div>
+            <a href="{{ section.settings.btn_link }}" class="btn_wrapper">{{ section.settings.btn_label }}</a>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Test Section",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "main_image",
+            "label": "Main Image"
+        },
+        {
+            "type": "image_picker",
+            "id": "badge_image",
+            "label": "Badge Image"
+        },
+        {
+            "type": "text",
+            "id": "dr_name",
+            "label": "Doctor's Name",
+            "default": "Dr. Ernie Sanderson",
+            "info": "Name of Doctor",
+            "placeholder": "Please input name of Doctor!"
+        },
+        {
+            "type": "text",
+            "id": "headline",
+            "label": "Headline",
+            "default": "Veterinarian-Approved",
+            "info": "Headline of the Section",
+            "placeholder": "Please input headline of the section!"
+        },
+        {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default": "All products from Dr. Ernie's are vetted and approved by a qualified veterinarian, ensuring top-quality care for your pet.",
+            "info": "Description of the Section",
+            "placeholder": "Please input Description of the section!"
+        },
+        {
+            "type": "text",
+            "id": "btn_label",
+            "label": "Button Label",
+            "default": "View Products",
+            "info": "Label of Button",
+            "placeholder": "Please input label of the Button!"
+        },
+        {
+            "type": "url",
+            "id": "btn_link",
+            "label": "Button Link",
+            "info": "Link of the Button"
+        }
+    ],
+    "presets": [
+        {
+            "name": "Test Section"
+        }
+    ]
+}
+{% endschema %}
